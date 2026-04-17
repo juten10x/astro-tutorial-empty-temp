@@ -1,4 +1,7 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+
 const pageTitle = "about";
 
 const identity = {
@@ -13,6 +16,8 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "ドキュメン�
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "crimson";
 ---
 
 <html lang="en">
@@ -23,10 +28,20 @@ const goal = 3;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<style define:vars={{skillColor}}>
+		  h1 {
+			color: purple;
+			font-size: 5rem;
+		  }
+		  .skill {
+    color: var(--skillColor);
+    font-weight: bold;
+  }
+		</style>
 	</head>
 	<body>
 		<h1>{pageTitle}</h1>
-		<a href="../">index</a>
+		<Navigation />
 		<p>段落</p>
 		<ul><li>リスト1</li><li>リスト2<ul><li>入れ子</li></ul></li></ul>
 
@@ -40,7 +55,7 @@ const goal = 3;
 </ul>
 <p>私のスキルは以下の通りです。</p>
 <ul>
-  {skills.map((skill) => <li>{skill}</li>)}
+  {skills.map((skill) => <li class="skill">{skill}</li>)}
 </ul>
 {happy && <p>I am happy to be learning Astro! Astroを学べて幸せです！</p>}
 
