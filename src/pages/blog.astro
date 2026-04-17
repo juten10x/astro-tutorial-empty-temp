@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
-const pageTitle = "index";
+const pageTitle = "blog";
 ---
 <BaseLayout pageTitle={pageTitle}>
 		<h2>記事リスト</h2>
